@@ -12,10 +12,10 @@
     <title>Vizew - Blog &amp; Magazine HTML Template</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="{{ url_for('static', filename='img/core-img/favicon.ico') }}">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -146,7 +146,7 @@
                     <div class="post-details-thumb mb-50">
                         <center>
                         <video width="1000" height="500" controls>
-                            <source src="../videos/index.mp4" type="video/mp4">
+                            <source src={{ url_for('static', filename=video) }} type="video/mp4">
                         </video>
                         </center>
                     </div>
@@ -186,15 +186,15 @@
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery/jquery.js') }}"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap/popper.js') }}"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap/bootstrap.js') }}"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="{{ url_for('static',filename='js/plugins/plugins.js') }}"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="{{ url_for('static',filename='js/active.js') }}"></script>
 </body>
 
 </html>

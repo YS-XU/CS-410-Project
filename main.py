@@ -9,20 +9,11 @@ mydb = db.Database()
 def index():
   return render_template('index.html')
 
-
-@app.route('/search_user', methods=['POST'])
-def search_user():
-  firstName = request.form.get('fname')
-  lastName = request.form.get('lname')
-  email = request.form.get('email')
-  result = mydb.search_user(firstName, lastName, email)
-  return render_template('users.html', result=result)
-
-
-@app.route('/test_db/')
-def test_db():
-  result = mydb.test()
-  return result
+@app.route('/lecture')
+def lecture():
+  lectures = mydb.getLecture()
+  
+  return render_template('single-post.html', video = lectures[0]["Video"])
 
 
 if __name__ == '__main__':
