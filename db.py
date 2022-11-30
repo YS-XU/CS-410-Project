@@ -21,10 +21,15 @@ class Database:
                                cursorclass=pymysql.cursors.DictCursor)
     self.cur = self.con.cursor()
 
-  def getLecture(self):
+  def getLecture(self, weeks):
     sql = "SELECT * FROM cs410.Lecture WHERE Weeks = %s"
-    weeks = "week2"
     self.cur.execute(sql, (weeks))
+    result = self.cur.fetchall()
+    return result
+  
+  def lecture_detail(self, title):
+    sql = "SELECT * FROM cs410.Lecture WHERE Title = %s"
+    self.cur.execute(sql, (title))
     result = self.cur.fetchall()
     return result
 #   def test(self):

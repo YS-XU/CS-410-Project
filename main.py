@@ -7,13 +7,15 @@ mydb = db.Database()
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  lectures = mydb.getLecture("week2")
+  return render_template('index.html', lectures = lectures)
 
-@app.route('/lecture')
-def lecture():
-  lectures = mydb.getLecture()
-  
-  return render_template('single-post.html', video = lectures[0]["Video"])
+@app.route('/<title>')
+def lecture(title):
+  lectures = mydb.lecture_detail(title)
+  with open("static/" + lectures[0]["Subtitle"], "r") as f: 
+    subtitle = f.read()
+  return render_template('single-post.html', video = lectures[0]["Video"], subtitle = subtitle)
 
 
 if __name__ == '__main__':
