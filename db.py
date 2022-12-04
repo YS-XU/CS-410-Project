@@ -32,6 +32,14 @@ class Database:
     self.cur.execute(sql, (title))
     result = self.cur.fetchall()
     return result
+  
+  def get_All_Lecture(self):
+    sql = "SELECT * FROM cs410.Lecture"
+    self.cur.execute(sql)
+    result = self.cur.fetchall()
+    return result
+
+    
 #   def test(self):
 #     sql = "select * from testDB.Unit"
 #     self.cur.execute(sql)
