@@ -27,7 +27,8 @@ def lecture(week, title):
 
 @app.route('/search', methods = ["POST"])
 def search_lecture():
-  lectures = mydb.get_All_Lecture()
+  query = request.form.get('top-search')
+  lectures = mydb.get_All_Lecture(query)
   return render_template("index.html", lectures = lectures)
 
 
